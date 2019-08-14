@@ -38,8 +38,8 @@ COPY nginx/${ENV:-dev}/fastcgi_params /etc/nginx/fastcgi_params
 COPY nginx/${ENV:-dev}/site-enabled /etc/nginx/site-enabled
 
 # source control
-COPY start.sh /usr/bin/start.sh
-RUN chmod 777 /usr/bin/start.sh
-#ENTRYPOINT /usr/bin/start.sh
+COPY start.sh ~/start.sh
+RUN chmod 777 ~/start.sh
+ENTRYPOINT ~/start.sh
 
 EXPOSE 80
