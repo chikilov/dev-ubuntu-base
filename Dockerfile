@@ -15,7 +15,7 @@ ARG ENV=dev
 ARG REPO_URL=https://github.com/chikilov/minikube.git
 
 # util installation
-RUN apt-get install -y vim curl
+RUN apt-get install -y vim curl git
 
 # php installation
 RUN apt-get install -y software-properties-common
