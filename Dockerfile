@@ -15,7 +15,7 @@ ARG ENV=dev
 ARG REPO_URL=https://github.com/chikilov/minikube.git
 
 # util installation
-RUN apt-get install -y vim curl git
+RUN apt-get install -y vim curl git sudo net-tools
 
 # php installation
 RUN apt-get install -y software-properties-common
@@ -35,11 +35,13 @@ RUN rm -rf /etc/nginx/sites-enabled/default
 WORKDIR /home/ubuntu/apps
 COPY php/${ENV:-dev}/php.ini /etc/php/${PV:-7.3}/fpm/php.ini
 COPY nginx/${ENV:-dev}/fastcgi_params /etc/nginx/fastcgi_params
-COPY nginx/${ENV:-dev}/site-enabled /etc/nginx/site-enabled
+COPY nginx/${ENV:-dev}/sites-enabled /etc/nginx/sites-enabled
 
 # source control
-COPY start.sh ~/start.sh
-RUN chmod 777 ~/start.sh
-ENTRYPOINT ~/start.sh
+COPY start.sh /home/ubuntu/start.sh
+RUN chmod 777 /home/ubuntu/start.sh
 
 EXPOSE 80
+EXPOSE 3306
+EXPOSE 6379
+EXPOSE 8080
