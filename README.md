@@ -14,6 +14,8 @@ docker run -ti -v /Volumes/exhdd/BaseProject:/home/ubuntu/apps/current dev-ubunt
 
 # Start Required Services at Container Shell
 
+sudo chown -R mysql:mysql /var/lib/mysql /var/run/mysqld
+
 sudo service redis-server start
 
 sudo service mysql start
