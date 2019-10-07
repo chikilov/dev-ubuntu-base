@@ -2,9 +2,9 @@
 project folder : /Volumes/exhdd/BaseProject
 
 # Create Docker Image
-git clone https://github.com/chikilov/minikube.git
+git clone https://github.com/chikilov/dev-ubuntu-base.git
 
-cd minikube/
+cd dev-ubuntu-base/
 
 docker build -t dev-ubuntu-base-gldaily:latest .
 
