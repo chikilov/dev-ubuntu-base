@@ -10,7 +10,7 @@ docker build -t dev-ubuntu-base-gldaily:latest .
 
 # Create Docker Container
 
-docker run -ti -v /Volumes/exhdd/BaseProject:/home/ubuntu/apps/current dev-ubuntu-base-gldaily
+docker run -ti -p 80:80 -p 3306:3306 -p 6379:6379 -p 8080:8080 -v /Volumes/exhdd/BaseProject:/home/ubuntu/apps/current dev-ubuntu-base-gldaily
 
 # Start Required Services at Container Shell
 
